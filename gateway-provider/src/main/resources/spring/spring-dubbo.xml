@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 添加 DUBBO SCHEMA -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:beans="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 应用名 -->
+    <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}"/>
+
+    <!-- 注册中心配置，连接到哪个本地注册中心 -->
+    <dubbo:registry  address="${dubbo.registry.address}" register="${dubbo.provider.register}"/>
+
+    <!-- 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。 -->
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.prepaid.api.TelephoneBillPrepaidApi" version="1.0" ref="telephoneBillPrepaidApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.sendsms.api.SendSmsApi" version="1.0" ref="sendSmsApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.sendsms.api.SmsRecordApi" version="1.0" ref="smsRecordApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.synOldSystem.api.SynPhpSystemApi" version="1.0" ref="synPhpSystemApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.synOldSystem.api.SynOldSystemApi" version="1.0" ref="synOldSystemApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.synOldSystem.api.JuheSystemApi" version="1.0" ref="juheSystemApi" group="${dubbo.service.group}"/>
+    <dubbo:service timeout="3000" interface="com.jvv.gateway.facade.jpush.api.PushMsgApi" version="1.0" ref="pushMsgApi" group="${dubbo.service.group}"/>
+</beans>

@@ -1,0 +1,13 @@
+<!--<!DOCTYPE table PUBLIC "-//turalyon.cn//DTD Mapper 3.0//EN" "middlegen/mybatis-dalgen-1.0.dtd">-->
+<table sqlname="channel_api_params">
+    <!--不新增的字段-->
+    <not_insert_fields>id</not_insert_fields>
+    <!-- 不能修改的字段 -->
+    <not_update_fields>id,raw_add_time,user_name</not_update_fields>
+    <!--不做为查询条件的字段-->
+    <not_query_fields>id,raw_add_time,raw_update_time</not_query_fields>
+
+    <!-- 指定字段对应的java类型 -->
+    <column name="expanded_parameter" javatype="java.util.HashMap"
+            typeHandler="com.jvv.gateway.dal.handlers.HashMapTypeHandler"/>
+</table>

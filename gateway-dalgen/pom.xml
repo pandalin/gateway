@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>gateway</artifactId>
+        <groupId>com.jvv.gateway</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>gateway-dalgen</artifactId>
+
+    <properties>
+        <!--模块是否跳过发布阶段，比如dal、test、web不应该发布到nexus，请设置这些module deploy.skip=true-->
+        <deploy.skip>false</deploy.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jvv</groupId>
+            <artifactId>mybatis-dalgen</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,20 @@
+金窝窝网关代码走读记录
+1、业务代码里面出现了System.out.println() 和 e.printStackTrace
+
+2、BeanUtils.copyProperties (request,order);
+尽量更换成：
+Copier.copy(request,order);
+
+3、if(infos!=null && infos.size ()>0)
+可以使用 CollectionUtils.isNotEmpty(infos)
+
+
+sendsms 使用得不错
+
+4、facade中
+AbstractOrder 、AbstractInfo、AbstractResult、BizResult、SimpleResult、validation 等全部删掉，使用common包中对应的类
+
+
+
+
+
